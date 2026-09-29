@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FDFBF7;
+  --foreground: #1D1D1B;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #E5DEC9;
+  color: #1A1918;
+}
+
+/* Subtle paper texture overlay */
+.paper-pattern {
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#DDD7CD 0.75px, transparent 0.75px), radial-gradient(#DDD7CD 0.75px, #FDFBF7 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Smooth transitions */
+* {
+  scroll-behavior: smooth;
+}
