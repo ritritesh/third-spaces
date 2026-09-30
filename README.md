@@ -55,7 +55,7 @@ Make sure you have Node.js (v18+) installed.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/third-spaces.git
+git clone https://github.com/ritritesh/third-spaces.git
 cd third-spaces
 ```
 
