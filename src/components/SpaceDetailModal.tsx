@@ -67,7 +67,7 @@ export default function SpaceDetailModal({ space, onClose }: SpaceDetailModalPro
                 {space.costDetail}
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-medium bg-black/50 text-white backdrop-blur-md uppercase tracking-wider">
-                {space.category}
+                {space.category === 'culture' ? 'Cultural Space' : space.category}
               </span>
             </div>
 
@@ -110,6 +110,23 @@ export default function SpaceDetailModal({ space, onClose }: SpaceDetailModalPro
               </div>
             </div>
 
+            {/* Features Tags */}
+            {space.features && space.features.length > 0 && (
+              <div>
+                <h4 className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-2">Key Features</h4>
+                <div className="flex flex-wrap gap-2">
+                  {space.features.map((feature) => (
+                    <span
+                      key={feature}
+                      className="px-3 py-1 rounded-full text-xs font-medium bg-white border border-paper-300 text-stone-800 shadow-2xs"
+                    >
+                      ✦ {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Transit and Best Time */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div className="p-3.5 bg-white rounded-xl border border-paper-200 flex items-start gap-3">
@@ -129,7 +146,7 @@ export default function SpaceDetailModal({ space, onClose }: SpaceDetailModalPro
               </div>
             </div>
 
-            {/* Amenities & Practical Reality (Crucial for students and visitors) */}
+            {/* Amenities & Practical Reality */}
             <div>
               <h4 className="text-xs uppercase tracking-wider font-semibold text-stone-400 mb-2.5">
                 Practical Amenities

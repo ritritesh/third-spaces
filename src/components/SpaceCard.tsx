@@ -48,7 +48,7 @@ export default function SpaceCard({ space, onSelect, index }: SpaceCardProps) {
 
           {/* Category Pill */}
           <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-medium text-white uppercase tracking-wider">
-            {space.category}
+            {space.category === 'culture' ? 'Cultural Space' : space.category}
           </div>
 
           {/* City & Neighborhood on bottom of image */}
@@ -72,18 +72,32 @@ export default function SpaceCard({ space, onSelect, index }: SpaceCardProps) {
             {space.tagline}
           </p>
 
-          {/* Metro & Transit Proximity */}
-          <div className="mt-3.5 flex items-center gap-1.5 text-[11px] text-stone-500 bg-paper-50 px-2.5 py-1.5 rounded-lg border border-paper-200">
+          {/* Features Pills (Outdoor, 24/7 Access, Open Seating, etc.) */}
+          {space.features && space.features.length > 0 && (
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {space.features.map((feature) => (
+                <span
+                  key={feature}
+                  className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 border border-stone-200/80"
+                >
+                  {feature}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Transit Proximity */}
+          <div className="mt-3 flex items-center gap-1.5 text-[11px] text-stone-500 bg-paper-50 px-2.5 py-1.5 rounded-lg border border-paper-200">
             <Navigation className="w-3 h-3 text-sanctuary-sage shrink-0" />
             <span className="truncate">{space.metroTransit}</span>
           </div>
 
           {/* Mood / Intent tags */}
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
             {space.moods.map((m) => (
               <span
                 key={m}
-                className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 font-medium"
+                className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-paper-100 text-stone-500 font-medium"
               >
                 {m}
               </span>

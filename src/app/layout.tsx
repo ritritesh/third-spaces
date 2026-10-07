@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Third Spaces · Sanctuaries in the City",
-  description: "Curated zero-cost and low-cost sanctuaries to read, reflect, and converse without commercial pressure.",
+  title: "Third Spaces · Sanctuaries in Bhubaneswar",
+  description: "Curated zero-cost and low-cost sanctuaries across Bhubaneswar to read, reflect, and converse without commercial pressure.",
 };
 
 export default function RootLayout({

@@ -20,7 +20,8 @@ export default function Hero({ totalSpaces, onOpenSerendipity }: HeroProps) {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-serif italic text-stone-600 bg-paper-100 border border-paper-300 mb-6"
         >
-          <span>The Third Place Theory: 1st is Home • 2nd is Work/College • 3rd is the Public Sanctuary</span>
+          <MapPin className="w-3.5 h-3.5 text-sanctuary-leaf" />
+          <span>Bhubaneswar Sanctuary Guide • 1st: Home • 2nd: Work/College • 3rd: The Public Sanctuary</span>
         </motion.div>
 
         {/* Poetic Main Headline */}
@@ -30,7 +31,7 @@ export default function Hero({ totalSpaces, onOpenSerendipity }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-3xl sm:text-5xl md:text-6xl text-paper-950 font-normal tracking-tight leading-[1.15]"
         >
-          In a city that asks you to spend to exist, here are places where you can{' '}
+          In a city that asks you to spend to exist, here are places in Bhubaneswar where you can{' '}
           <span className="italic font-serif text-sanctuary-leaf underline decoration-sanctuary-sand underline-offset-8">
             simply be
           </span>
@@ -44,7 +45,7 @@ export default function Hero({ totalSpaces, onOpenSerendipity }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-6 text-sm sm:text-base md:text-lg text-stone-600 max-w-2xl mx-auto font-light leading-relaxed"
         >
-          Curated low-cost and zero-cost havens—botanical perimeters, vintage reading rooms, terraced stepwells, and quiet courtyards designed for deep conversations, slow reading, and mindfulness.
+          Curated low-cost and zero-cost havens across Bhubaneswar—ancient lake ghats, botanical lakeside trails, quiet state library reading halls, bamboo groves, and breezy heritage hilltops designed for contemplation and connection.
         </motion.p>
 
         {/* Action bar */}
@@ -61,7 +62,7 @@ export default function Hero({ totalSpaces, onOpenSerendipity }: HeroProps) {
 
           <div className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-100/70 rounded-md border border-paper-200">
             <BookOpen className="w-3.5 h-3.5 text-sanctuary-terracotta" />
-            <span>{totalSpaces} Verified Sanctuaries</span>
+            <span>{totalSpaces} Bhubaneswar Sanctuaries</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-100/70 rounded-md border border-paper-200">

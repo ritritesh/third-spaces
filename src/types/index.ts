@@ -21,6 +21,7 @@ export interface ThirdSpace {
   imageUrl: string;
   description: string;
   atmosphere: string; // Qualitative notes like "Ancient banyan shade, stone benches, soft wind"
+  features: string[]; // Specific features like "Outdoor", "Open Seating", "24/7 Access"
   amenities: {
     restrooms: boolean;
     drinkingWater: boolean;

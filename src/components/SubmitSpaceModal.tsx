@@ -17,7 +17,7 @@ export default function SubmitSpaceModal({
   onAddSpace,
 }: SubmitSpaceModalProps) {
   const [name, setName] = useState('');
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Bhubaneswar');
   const [neighborhood, setNeighborhood] = useState('');
   const [address, setAddress] = useState('');
   const [category, setCategory] = useState<SpaceCategory>('park');
@@ -34,27 +34,31 @@ export default function SubmitSpaceModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !city || !thoughtPrompt) return;
+    if (!name || !thoughtPrompt) return;
+
+    const chosenCity = city.trim() || 'Bhubaneswar';
+    const chosenNeighborhood = neighborhood.trim() || 'Bhubaneswar';
 
     const newSpace: ThirdSpace = {
       id: `custom-${Date.now()}`,
       name,
-      tagline: description.slice(0, 90) || 'A tranquil community sanctuary discovered by a local explorer.',
+      tagline: description.slice(0, 90) || 'A tranquil community sanctuary discovered by a local explorer in Bhubaneswar.',
       category,
       moods: [mood, 'unplug'],
       costTier,
       costDetail: costDetail || (costTier === 'free' ? '₹0 Free' : 'Under ₹50'),
-      city,
-      neighborhood: neighborhood || city,
-      address: address || `${neighborhood}, ${city}`,
-      metroTransit: metroTransit || 'Local transit / walking proximity',
+      city: chosenCity,
+      neighborhood: chosenNeighborhood,
+      address: address || `${chosenNeighborhood}, ${chosenCity}`,
+      metroTransit: metroTransit || 'Mo Bus / Walking proximity',
       bestTimeToVisit: 'Early morning or golden hour before dusk',
       thoughtPrompt,
       imageUrl:
         imageUrl ||
         'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=1200&q=80',
-      description: description || 'A quiet, unhurried space to read, converse, or breathe away from commercial noise.',
+      description: description || 'A quiet, unhurried space in Bhubaneswar to read, converse, or breathe away from commercial noise.',
       atmosphere: 'Peaceful, unhurried, welcoming.',
+      features: ['Community Submitted', 'Local Gem'],
       amenities: {
         restrooms: true,
         drinkingWater: true,
@@ -68,7 +72,7 @@ export default function SubmitSpaceModal({
         'Leave no garbage behind',
         'Keep phones on silent',
       ],
-      coordinates: { lat: 20.5937, lng: 78.9629 },
+      coordinates: { lat: 20.2961, lng: 85.8245 },
     };
 
     onAddSpace(newSpace);
@@ -79,10 +83,13 @@ export default function SubmitSpaceModal({
       onClose();
       // Reset form
       setName('');
-      setCity('');
+      setCity('Bhubaneswar');
       setNeighborhood('');
+      setAddress('');
       setThoughtPrompt('');
       setDescription('');
+      setMetroTransit('');
+      setImageUrl('');
     }, 1800);
   };
 
@@ -109,17 +116,17 @@ export default function SubmitSpaceModal({
               <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto animate-bounce" />
               <h3 className="font-serif text-2xl text-stone-900">Sanctuary Added</h3>
               <p className="text-xs text-stone-600 max-w-xs mx-auto">
-                Thank you for contributing a quiet haven. It is now live on your directory for other seekers.
+                Thank you for contributing a quiet haven. It is now live on your directory for other seekers in Bhubaneswar.
               </p>
             </div>
           ) : (
             <>
               <div className="mb-6">
                 <span className="text-[11px] uppercase tracking-wider font-semibold text-sanctuary-leaf">
-                  Community Contribution
+                  Community Contribution · Bhubaneswar
                 </span>
                 <h3 className="font-serif text-2xl text-stone-900 mt-1">
-                  Share an Unexplored Haven
+                  Share a Hidden Haven in Bhubaneswar
                 </h3>
                 <p className="text-xs text-stone-500 font-light mt-1">
                   Help fellow students and thinkers discover low-cost spaces to pause, read, and connect.
@@ -134,7 +141,7 @@ export default function SubmitSpaceModal({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. State Archeology Garden, Banyan Steps..."
+                    placeholder="e.g. Bindu Sagar Ghats, Ekamra Kanan Lake, Forest Park banyan..."
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-paper-300 bg-white text-stone-900 focus:outline-none focus:ring-1 focus:ring-sanctuary-leaf"
@@ -144,12 +151,12 @@ export default function SubmitSpaceModal({
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-stone-700 font-medium mb-1">
-                      City *
+                      City
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Pune, Delhi, Bengaluru..."
+                      placeholder="Bhubaneswar"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-paper-300 bg-white text-stone-900 focus:outline-none focus:ring-1 focus:ring-sanctuary-leaf"
@@ -157,11 +164,12 @@ export default function SubmitSpaceModal({
                   </div>
                   <div>
                     <label className="block text-stone-700 font-medium mb-1">
-                      Neighborhood
+                      Neighborhood / Area *
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Kothrud, Fort, Jayanagar..."
+                      required
+                      placeholder="e.g. Old Town, Nayapalli, Patia, Khandagiri..."
                       value={neighborhood}
                       onChange={(e) => setNeighborhood(e.target.value)}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-paper-300 bg-white text-stone-900 focus:outline-none focus:ring-1 focus:ring-sanctuary-leaf"
@@ -181,7 +189,8 @@ export default function SubmitSpaceModal({
                     >
                       <option value="park">Public Park / Garden</option>
                       <option value="library">Public Library / Reading Room</option>
-                      <option value="heritage">Heritage Site / Stepwell</option>
+                      <option value="heritage">Heritage Site / Ghat</option>
+                      <option value="culture">Art Center / Cultural Verandah</option>
                       <option value="community">Community Cultural Center</option>
                       <option value="rooftop">Open Terrace / Lakeview</option>
                     </select>
@@ -215,7 +224,7 @@ export default function SubmitSpaceModal({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Notice how the birds return to the banyan branches at dusk..."
+                    placeholder="e.g. Notice how temple bells echo across the water at dusk..."
                     value={thoughtPrompt}
                     onChange={(e) => setThoughtPrompt(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-paper-300 bg-white text-stone-900 focus:outline-none focus:ring-1 focus:ring-sanctuary-leaf italic font-serif"
@@ -224,11 +233,11 @@ export default function SubmitSpaceModal({
 
                 <div>
                   <label className="block text-stone-700 font-medium mb-1">
-                    Nearest Metro / Public Bus Access
+                    Nearest Mo Bus / Public Transit Access
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. 5 min walk from Station Gate 3"
+                    placeholder="e.g. Mo Bus Route 10 / Lingaraj Stop, 4 min walk"
                     value={metroTransit}
                     onChange={(e) => setMetroTransit(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-paper-300 bg-white text-stone-900 focus:outline-none focus:ring-1 focus:ring-sanctuary-leaf"

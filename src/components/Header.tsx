@@ -24,11 +24,11 @@ export default function Header({ onOpenSerendipity, onOpenSubmit }: HeaderProps)
                 Third Spaces
               </span>
               <span className="text-[10px] uppercase tracking-wider bg-sanctuary-mist text-sanctuary-leaf px-2 py-0.5 rounded-full font-medium hidden sm:inline-block">
-                Zero Cost Sanctuaries
+                Bhubaneswar Edition
               </span>
             </div>
             <p className="text-[11px] text-stone-500 font-light hidden md:block">
-              Sanctuaries to think, read, and converse without paying to exist.
+              Sanctuaries across Bhubaneswar to think, read, and converse without paying to exist.
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Header({ onOpenSerendipity, onOpenSubmit }: HeaderProps)
           <button
             onClick={onOpenSerendipity}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-paper-100 hover:bg-paper-200 text-stone-800 border border-paper-300 transition-all hover:border-sanctuary-leaf"
-            title="Random sanctuary suggestion"
+            title="Random sanctuary suggestion in Bhubaneswar"
           >
             <Compass className="w-3.5 h-3.5 text-sanctuary-leaf animate-spin-slow" />
             <span className="hidden sm:inline">Surprise Me</span>
