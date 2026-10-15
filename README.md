@@ -1,6 +1,8 @@
 # Third Spaces · ତୃତୀୟ ସ୍ଥଳ (Bhubaneswar)
 
 > **"In a city that asks you to spend to exist, here are places where you can simply be."**
+> 
+> 🌐 **Live Website**: [https://ritritesh.github.io/third-spaces/](https://ritritesh.github.io/third-spaces/)
 
 A contemplative web directory and discovery engine for zero-cost and low-cost sanctuaries across **Bhubaneswar, Odisha**—sprawling civic parks, quiet self-study libraries, and inspiring cultural courtyards.
 

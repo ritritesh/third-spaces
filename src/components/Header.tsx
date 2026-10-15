@@ -23,9 +23,6 @@ export default function Header({ onOpenSerendipity, onOpenSubmit }: HeaderProps)
               <span className="font-serif tracking-widest uppercase text-sm sm:text-base font-bold text-paper-900">
                 Third Spaces
               </span>
-              <span className="text-[10px] uppercase tracking-wider bg-sanctuary-mist text-sanctuary-leaf px-2 py-0.5 rounded-full font-medium hidden sm:inline-block">
-                Bhubaneswar Edition
-              </span>
             </div>
             <p className="text-[11px] text-stone-500 font-light hidden md:block">
               Sanctuaries across Bhubaneswar to think, read, and converse without paying to exist.
